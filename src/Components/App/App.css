@@ -1,3 +1,10 @@
+.App{
+    height:100vh;
+    overflow: hidden;
+    display:flex;
+    flex-direction: column;
+
+}
 .App-Header{
     position: fixed;
     top: 0;
@@ -7,6 +14,19 @@
     border-right: 3px solid ;
     background: rgb(106, 10, 10);
     color: #f1f1f1;
+    text-decoration: underline;
+  
+    left:0;
+    text-align: center;
+    width: 32%;
+}
+.HeaderText{
+    padding:2px;
+    padding: 2px;
+    margin-left: 30px;
+    font-family: Helvetica;
+    letter-spacing: 1px;
+    font-size: 26px;
 }
 .App-Sidebar{
     position: fixed;
@@ -14,10 +34,38 @@
     width: 6%;
     z-index: 1;
     height:100vh;
-   
+   top:0;
     background: rgb(46, 46, 46);
     color: #f1f1f1;
 }
+.LoadBox{
+    height:40vh;
+   
+        position: fixed; /* or absolute */
+        top: 35%;
+        left: 35%;
+
+    background-color: orange;
+    color:black;
+    border:2px solid black;
+ width:40em;
+
+    text-align: center;
+
+}
+.textLoadBox{
+    font-family: Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+span{
+    font-size: 35px;
+}
+/* 
+  <p className="textLoadBox">LOAD</p>
+  <button className="btnLoadBox" onClick={() => this.props.onSync}>SYNC</button>
+</div>
+</div> */
 
 /* For mobile phones: */
 [class*="col-"] {
