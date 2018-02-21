@@ -2437,3 +2437,4 @@ If you have ideas for more “How To” recipes that should be on this page, [le
 # Redux-notepad
 Notepad using Redux to be soon integrated with its front end.
 >>>>>>> 90f027d5d0293876d7b91acaca8ab12f99a555cf
+# Eval3-LibApp
