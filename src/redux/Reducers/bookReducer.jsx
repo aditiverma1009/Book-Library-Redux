@@ -4,6 +4,7 @@ const axios = require('axios');
 // const onClickEditReducer = 'ON_CLICK_EDIT_REDUCER';
 // const onSaveEventReducer = 'ON_SAVE_EVENT_REDUCER';
 const setData = 'SET_DATA';
+const fetchData = 'FETCH_DATA';
 
 
 const defaultValue = {
@@ -15,7 +16,7 @@ const defaultValue = {
 const bookReducer = (prevState = defaultValue, action) => {
   switch (action.type) {
     case setData: {
-      console.log('here');
+      // console.log('here');
       // Send a POST request
       axios({
         method: 'post',

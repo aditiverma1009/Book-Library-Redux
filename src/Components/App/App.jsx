@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import './App.css';
 import BookDisplay from '../BookDisplay/BookDisplay';
-import { onSync } from '../../redux/Actions';
+import { onSync, onFetch } from '../../redux/Actions';
 
 
 class App extends React.Component {
@@ -15,20 +15,34 @@ class App extends React.Component {
     };
   }
 
+  componentDidMount() {
+    this.onFetch();
+  }
+
+  const onFetch=() => {
+    axios.get( '/fetchFromDb')
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
+
   render() {
-    // const books = this.props.books.slice();
-    // const booklist = this.props.books.map((step, index) => (
-    //   <div className="App-Container">
-    //     <div className="App-Blocker">
-    //       <BookDisplay
-    //         bookTitle={booklist[index].bookTitle}
-    //         bookAuthor={booklist[index].bookAuthor}
-    //         bookRating={booklist[index].bookRating}
-    //         bookLike={booklist[index].bookLike}
-    //       />
-    //     </div>
-    //   </div>
-    // ));
+    const books = this.props.books.slice();
+    const booklist = this.props.books.map((step, index) => (
+      <div className="App-Container">
+        <div className="App-Blocker">
+          <BookDisplay
+            bookTitle={booklist[index].bookTitle}
+            bookAuthor={booklist[index].bookAuthor}
+            bookRating={booklist[index].bookRating}
+            bookLike={booklist[index].bookLike}
+          />
+        </div>
+      </div>
+    ));
 
 
     if (this.props.page === true) {
@@ -66,18 +80,16 @@ const mapStateToProps = state => ({
 
 const mapDispatcherToProps = dispatch => ({
   onSync: () => dispatch(onSync()),
-//   onClickEditHere: key => dispatch(onClickEditReducer(key)),
-//   onFooterClickHere: () => dispatch(onFooterClick()),
+//   onFetch: () => dispatch(onFetch()),
 });
 
 export default connect(mapStateToProps, mapDispatcherToProps)(App);
 
 
 App.propTypes = {
-//   textNoteHeading: PropTypes.string.isRequired,
-//   onChangeNoteTitle: PropTypes.func.isRequired,
-//   valueNoteTitle: PropTypes.string.isRequired,
+
   onSync: PropTypes.func.isRequired,
+  onFetch: PropTypes.func.isRequired,
 //   valueNote: PropTypes.string.isRequired,
 //   alertBool: PropTypes.bool.isRequired,
 };
